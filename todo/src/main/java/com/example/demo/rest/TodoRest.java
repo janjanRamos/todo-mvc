@@ -25,7 +25,7 @@ public class TodoRest {
 
 	@GetMapping("/todos")
 	public List<Todo> all() {
-		return todoRepository.findAll(new Sort(Sort.Direction.DESC, "id"));
+		return todoRepository.findAll();
 	}
 
 	@GetMapping("/todo/{id}")
@@ -34,12 +34,12 @@ public class TodoRest {
 	}
 
 	@PostMapping("/todo")
-	public Todo saveTodo(@RequestBody Todo todo) {
+	public Todo save(@RequestBody Todo todo) {
 		return todoRepository.save(todo);
 	}
 
 	@DeleteMapping("/todo")
-	public void deleteTodo(@RequestBody Todo todo) {
+	public void delete(@RequestBody Todo todo) {
 		todoRepository.delete(todo);
 	}
 
